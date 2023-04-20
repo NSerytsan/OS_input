@@ -2,8 +2,15 @@
 #include <linux/input.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <signal.h>
 
 int loop = 1;
+
+
+void sig_handler()
+{
+    loop = 0;
+}
 
 int main(int argc, char **argv)
 {
@@ -14,6 +21,8 @@ int main(int argc, char **argv)
     ssize_t bytes_read = 0;
     int i = 0;
 
+    signal(SIGINT, sig_handler);
+    
     if ((kb_input_device_fd = open(kb_input_device, O_RDONLY)) == -1)
     {
         fprintf(stderr, "Couldn't open the device file <%s>.", kb_input_device);
