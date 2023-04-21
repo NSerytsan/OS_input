@@ -4,6 +4,82 @@
 #include <unistd.h>
 #include <signal.h>
 
+#define NUM_KEY_CODES 71
+
+const char *map_key_codes[] = {
+    "RESERVED",
+    "ESC",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "MINUS",
+    "EQUAL",
+    "BACKSPACE",
+    "TAB",
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    "Y",
+    "U",
+    "I",
+    "O",
+    "P",
+    "LEFTBRACE",
+    "RIGHTBRACE",
+    "ENTER",
+    "LEFTCTRL",
+    "A",
+    "S",
+    "D",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    "SEMICOLON",
+    "APOSTROPHE",
+    "GRAVE",
+    "LEFTSHIFT",
+    "BACKSLASH",
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    "N",
+    "M",
+    "COMMA",
+    "DOT",
+    "SLASH",
+    "RIGHTSHIFT",
+    "KPASTERISK",
+    "LEFTALT",
+    "SPACE",
+    "CAPSLOCK",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7",
+    "F8",
+    "F9",
+    "F10",
+    "NUMLOCK",
+    "SCROLLLOCK"
+};
+
 int loop = 1;
 
 void sig_handler()
@@ -31,12 +107,11 @@ int main(int argc, char **argv)
 
         if (event.type == EV_KEY)
         {
-            if (event.value == 0)
+            if (event.value == 0 && event.code < NUM_KEY_CODES)
             {
-                printf("%d", event.code);
+                printf("Key <%s> with code <%d>\n", map_key_codes[event.code], event.code);
             }
         }
-        fflush(stdout);
     }
 
     close(kb_input_device_fd);
