@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <signal.h>
 
-#define NUM_KEY_CODES 71
+#define NUM_KEY_CODES 122
 
 const char *map_key_codes[] = {
     "RESERVED",
@@ -77,7 +77,58 @@ const char *map_key_codes[] = {
     "F9",
     "F10",
     "NUMLOCK",
-    "SCROLLLOCK"
+    "SCROLLLOCK",
+    "KP7",
+    "KP8",
+    "KP9",
+    "KPMINUS",
+    "KP4",
+    "KP5",
+    "KP6",
+    "KPPLUS",
+    "KP1",
+    "KP2",
+    "KP3",
+    "KP0",
+    "KPDOT",
+    "UNSPECIFIED",
+    "ZENKAKUHANKAKU",
+    "102ND",
+    "F11",
+    "F12",
+    "RO",
+    "KATAKANA",
+    "HIRAGANA",
+    "HENKAN",
+    "KATAKANAHIRAGANA",
+    "MUHENKAN",
+    "KPJPCOMMA",
+    "KPENTER",
+    "RIGHTCTRL",
+    "KPSLASH",
+    "SYSRQ",
+    "RIGHTALT",
+    "LINEFEED",
+    "HOME",
+    "UP",
+    "PAGEUP",
+    "LEFT",
+    "RIGHT",
+    "END",
+    "DOWN",
+    "PAGEDOWN",
+    "INSERT",
+    "DELETE",
+    "MACRO",
+    "MUTE",
+    "VOLUMEDOWN",
+    "VOLUMEUP",
+    "POWER",
+    "KPEQUAL",
+    "KPPLUSMINUS",
+    "PAUSE",
+    "SCALE",
+    "KPCOMMA"
 };
 
 int loop = 1;
